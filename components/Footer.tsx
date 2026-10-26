@@ -150,7 +150,7 @@ export function Footer() {
             ))}
           </ul>
 
-          <div className="flex flex-col   items-start gap-1 sm:items-end">
+          <div className="flex flex-col items-start gap-1 sm:items-end">
             <p className="text-xs text-zinc-400">
               © {copyrightYear} BikeZone. All rights reserved.
             </p>

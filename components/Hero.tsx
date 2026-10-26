@@ -26,10 +26,8 @@ export function Hero() {
                rgba(8, 9, 13, 0.65) 30%,
               rgba(8, 9, 13, 0.90) 100%),url('/bikes/Ninja Ride.png')`,
           backgroundSize: "cover",
-          // height:200,
           backgroundPosition: "center",
         }}
-
       >
         {/* Copy */}
         <div className="animate-fade-up pt-4">
@@ -85,8 +83,6 @@ export function Hero() {
               <Image
                 src={HERO_IMAGE}
                 alt="Ducati Panigale V4 sport motorcycle on display"
-
-
                 fill
                 priority
                 sizes="(min-width: 1024px) 50vw, 100vw"

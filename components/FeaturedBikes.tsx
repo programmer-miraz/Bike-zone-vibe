@@ -16,7 +16,7 @@ export function FeaturedBikes() {
           description="A rotating showcase of the most sought-after machines on our floor — each one inspected, serviced and ready to ride home."
         />
 
-        <div className="mt-12 grid gap-7  sm:grid-cols-2 lg:mt-14 lg:grid-cols-4">
+        <div className="mt-12 grid gap-7 sm:grid-cols-2 lg:mt-14 lg:grid-cols-4">
           {featuredBikes.map((bike, i) => (
             <BikeCard key={bike.id} bike={bike} index={i} sizes={CARD_SIZES} />
           ))}

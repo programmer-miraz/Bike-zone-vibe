@@ -5,10 +5,16 @@
 // (no mongodb import, no process.env, no fs).
 
 // The four categories a bike can belong to.
+//
+// "as const" freezes the array so TypeScript knows its exact contents.
+// BikeCategory is then read out of the array:
+// typeof CATEGORIES  ->  readonly ["Sport", "Cruiser", "Adventure", "Street"]
+// ...[number]        ->  "Sport" | "Cruiser" | "Adventure" | "Street"
+// This way the list of categories and the TypeScript type can never drift apart.
 export const CATEGORIES = ["Sport", "Cruiser", "Adventure", "Street"] as const;
 export type BikeCategory = (typeof CATEGORIES)[number];
 
-// The ways the bikes can be sorted.
+// Same trick for the ways the bikes can be sorted.
 export const SORT_OPTIONS = ["default", "price-asc", "price-desc"] as const;
 export type BikeSort = (typeof SORT_OPTIONS)[number];
 
@@ -89,6 +95,10 @@ export function formatHorsepower(value: number): string {
  */
 export function isValidBikeId(id: string): boolean {
   if (id.length < 3 || id.length > 64) return false;
+  // The regular expression reads as:
+  //   [a-z0-9]+          one or more lowercase letters or digits
+  //   (?:-[a-z0-9]+)*    optionally, more of those after a single hyphen
+  // Testing it here keeps badly formed ids away from the database.
   return /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(id);
 }
 

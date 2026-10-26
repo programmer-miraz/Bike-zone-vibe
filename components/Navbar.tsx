@@ -75,9 +75,6 @@ export function Navbar() {
           >
             <SearchIcon />
           </Link>
-          <Button href="/Login" size="md">
-            Login
-          </Button>
           <Button href="/bikes" size="md">
             Explore Bikes
           </Button>
@@ -96,7 +93,7 @@ export function Navbar() {
             type="button"
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
-            onClick={() => setOpen((v) => !v)}
+            onClick={() => setOpen((isOpen) => !isOpen)}
             className="grid h-11 w-11 place-items-center rounded-full bg-brand text-white transition-colors hover:bg-brand-light focus-visible:outline-2 focus-visible:outline-brand focus-visible:outline-offset-2"
           >
             {open ? <CloseIcon /> : <MenuIcon />}

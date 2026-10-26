@@ -53,9 +53,13 @@ const FEATURED_BIKE_IDS = [
  * We look up every id in the sample data and skip the ones that are
  * missing (every id exists in the sample database).
  */
-export const featuredBikes: Bike[] = FEATURED_BIKE_IDS.map((id) =>
-  sampleBikes.find((bike) => bike.id === id),
-).filter((bike): bike is Bike => bike !== undefined);
+export const featuredBikes: Bike[] = [];
+for (const id of FEATURED_BIKE_IDS) {
+  const bike = sampleBikes.find((sample) => sample.id === id);
+  if (bike) {
+    featuredBikes.push(bike);
+  }
+}
 
 const categoryContent: Record<
   BikeCategory,
